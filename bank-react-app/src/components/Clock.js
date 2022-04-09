@@ -1,4 +1,5 @@
-import {Component} from 'react';
+
+import React, { Component }  from 'react';
 
 class Clock extends Component {
   constructor(props) {
@@ -26,7 +27,6 @@ class Clock extends Component {
   render() {
     return (
       <div>
-        
         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
