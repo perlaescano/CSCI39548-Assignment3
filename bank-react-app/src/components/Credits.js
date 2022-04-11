@@ -15,7 +15,7 @@ class Credits extends Component {
                 <h1>Credits</h1>
                 <div id="menu">
                     <label>Menu</label>
-                    <Link id="buttons" to="/userProfile"><button><p>Profile</p></button></Link>
+                    <Link id="buttons" to="/userProfile"><button><p>User Profile</p></button></Link>
                     <Link id="buttons" to="/debit"><button><p>View Debits</p></button></Link>    
                 </div>
 
