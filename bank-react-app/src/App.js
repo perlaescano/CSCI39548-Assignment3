@@ -5,6 +5,7 @@ import axios from 'axios';
 import UserProfile from './components/UserProfile';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
+import Clock from './components/Clock';
 
 class App extends Component {
   constructor() {
@@ -145,11 +146,14 @@ class App extends Component {
       addDebit={this.addDebit}
       />
     );
-
-
+    
     
     return (
+        
         <Router>
+         <div>
+         <Clock/>
+          </div>
           <Switch>
             <Route exact path="/" component={UserProfileComponent}/>    
             <Route exact path="/userProfile" render={UserProfileComponent}/>  
