@@ -69,7 +69,7 @@ function UserProfile(){
         };
             return (
                 
-            <body id = "changeBackground" style = {{backgroundColor: "white",color: "black",height:"1000px"}} >
+            <body id = "changeBackground" style = {{backgroundColor: "white",color: "black",height:"1000px",}} >
                 <div style={user}>
                     <h1 id = "firstUserNameUse" >Hello {uName}</h1>
                     <div id="starterInfo">
