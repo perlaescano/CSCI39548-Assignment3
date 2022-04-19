@@ -26,11 +26,16 @@ class Clock extends Component {
 
   render() {
     return (
-      <div>
+      <div style = {clockStyling}>
         <h2>{this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
   }
+  
 }
 
+const clockStyling ={
+  marginLeft: "45%",
+  
+}
 export default Clock;

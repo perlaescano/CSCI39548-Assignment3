@@ -6,11 +6,12 @@ import UserProfile from './components/UserProfile';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
 import Clock from './components/Clock';
+import CustomizeProfile from './components/CustomizeProfile';
+//import users from './users.json';
 
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       currentUser: 
       {
@@ -22,6 +23,8 @@ class App extends Component {
       totalCredit: 0 //total balance
     }
   }
+
+
 
   componentDidMount() { //for the APIs
     this.getCredit();
@@ -146,6 +149,13 @@ class App extends Component {
       addDebit={this.addDebit}
       />
     );
+
+    let CustomizeProfileComponent = () => (
+      <CustomizeProfile
+      userName = {this.state.currentUser.userName}
+
+      />
+    );
     
     
     return (
@@ -156,7 +166,8 @@ class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={UserProfileComponent}/>    
-            <Route exact path="/userProfile" render={UserProfileComponent}/>  
+            <Route exact path="/userProfile" render={UserProfileComponent}/> 
+            <Route exact path="/customizeProfile" render={CustomizeProfileComponent}/> 
             <Route exact path="/credit" render={CreditsComponent}/>
             <Route exact path="/debit" render={DebitsComponent}/>
           </Switch>
