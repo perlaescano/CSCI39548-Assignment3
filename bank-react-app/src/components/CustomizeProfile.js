@@ -1,83 +1,106 @@
-import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import React, {Component} from 'react';
+//import React, { useState } from 'react';
+//import {useHistory} from 'react-router-dom';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
+//import users from '../users.json';
 
-function userSettingsForm() {
-  const [formData, setFormData] = useState({
-    userName: "",
-    backgroundColor: "",
-    textColor: "",
-  });
+class UserSettingsForm extends Component{
+    state = {
+        id : "",
+        userName: "",
+        backgroundColor: "",
+        textColor: "",
+    }
 
-  const { userName, backgroundColor, textColor } = formData;
+    handleChange = event => {
+        this.setState({ name: event.target.value });
+    }
+    //const { userName, backgroundColor, textColor } = formData;
 
-  const onChange = (e) => {
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
+    
+    handleSubmit = event => {
+        event.preventDefault();
+    
+        const user = {
+          //name: this.state.name
+          //id : "",
+          userName: this.state.userName,
+          backgroundColor: this.state.backgroundColor,
+          textColor: this.state.textColor,
+        };
+        axios.delete('../users.json/1')
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+        axios.post('../users.json', { user })
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+        //const history = useHistory();
+        //history.go(-1);
+    }
+    
+    
+    //const axios = require('axios');
+    
+    render(){
+        return (
+            <div style={userSettings}>
+            <section className="heading">
+                <h1>User Settings</h1>
+            </section>
 
-  const history = useHistory();
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    history.go(-1);
-  };
+            <section className="form">
+                <form onSubmit={this.handleSubmit}>
+                <div>
+                    <label>New Username</label>
+                    <input
+                    type="text"
+                    className="form-control"
+                    id="userName"
+                    name="userName"
+                    //value={userName}
+                    onChange={this.handleChange}
+                    placeholder="Enter a new username"
+                    />
+                </div>
+                <div>
+                    <label>Background Color</label>
+                    <input
+                    type="text"
+                    className="form-control"
+                    id="backgroundColor"
+                    name="backgroundColor"
+                    //value={backgroundColor}
+                    onChange={this.handleChange}
+                    placeholder="Enter a hex value"
+                    />
+                </div>
+                <div>
+                    <label>Text Color</label>
+                    <div>
+                    <input
+                    type="text"
+                    className="form-control"
+                    id="textColor"
+                    name="textColor"
+                    //value={textColor}
+                    onChange={this.handleChange}
+                    placeholder="Enter a hex value"
+                    />
+                    </div>
+                    
+                </div>
 
-  return (
-    <div style={userSettings}>
-      <section className="heading">
-        <h1>User Settings</h1>
-      </section>
-
-      <section className="form">
-        <form onSubmit={onSubmit}>
-          <div>
-            <label>New Username</label>
-            <input
-              type="text"
-              className="form-control"
-              id="userName"
-              name="userName"
-              value={userName}
-              onChange={onChange}
-              placeholder="Enter a new username"
-            />
-          </div>
-          <div>
-            <label>Background Color</label>
-            <input
-              type="text"
-              className="form-control"
-              id="backgroundColor"
-              name="backgroundColor"
-              value={backgroundColor}
-              onChange={onChange}
-              placeholder="Enter a hex value"
-            />
-          </div>
-          <div>
-            <label>Text Color</label>
-            <div>
-            <input
-              type="text"
-              className="form-control"
-              id="textColor"
-              name="textColor"
-              value={textColor}
-              onChange={onChange}
-              placeholder="Enter a hex value"
-            />
+                <Link to = "/userProfile"> <button>Submit</button></Link>
+                </form>
+            </section>
             </div>
-            
-          </div>
-
-          <div> <button>Submit</button></div>
-        </form>
-      </section>
-    </div>
-  );
+        );
+    }
 }
 
 const userSettings ={
@@ -94,4 +117,4 @@ const userSettings ={
     marginRight: "auto",
   }
 
-export default userSettingsForm;
+export default UserSettingsForm;

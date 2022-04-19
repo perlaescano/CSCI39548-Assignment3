@@ -1,7 +1,10 @@
 {
     "users":[
         {
+            "id": 1,
             "userName": "Eric Dittus",
+            "backgroundColor":"#808080",
+            "textColor":"#000000",
             "memberSince": "04/29/96"
     
         }
