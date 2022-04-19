@@ -4,11 +4,7 @@ import useCollapse from 'react-collapsed';
 import { useState } from "react";
 
 function UserProfile(){
-        //const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
         let uName = "Eric"
-        let memSince = "04/29/96";
-        let backColor = "blue";
-        let texColor = "#000000";
         const [formData, setFormData] = useState({
             userName: "",
             backgroundColor: "",
@@ -21,8 +17,6 @@ function UserProfile(){
         const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
         function handleOnClick() {
-            // Do more stuff with the click event!
-            // Or, set isExpanded conditionally 
             setExpanded(!isExpanded);
         }
         const onChange = (e) => {
@@ -70,11 +64,12 @@ function UserProfile(){
             return (
                 
             <body id = "changeBackground" style = {{backgroundColor: "white",color: "black",height:"1000px"}} >
+                <div style ={{height:"20px"}}>
+                </div>
                 <div style={user}>
                     <h1 id = "firstUserNameUse" >Hello {uName}</h1>
                     <div id="starterInfo">
-                        <div id = "starterInfo_username">Username: {uName}</div>
-                        
+                        <div id = "starterInfo_username">Username: {uName}</div>  
                     </div>
                     <div id="customizeProfileCallapse">
                         <div className ="userSettings" {...getToggleProps({onClick: handleOnClick})} style = {{marginTop: "10px"}}>
@@ -83,62 +78,61 @@ function UserProfile(){
                         </div>
                         <div {...getCollapseProps()}>
                             <div className="content">
-                            <div className="userSettings" >
-                            <section className="heading">
-                                <h1>User Settings</h1>
-                            </section>
+                                <div className="userSettings" >
+                                    <section className="heading">
+                                        <h1>User Settings</h1>
+                                    </section>
 
-                            <section className="thisform">
-                                <form onSubmit={onSubmit}>
-                                <div>
-                                    <label>New Username</label>
-                                    <input
-                                    type="text"
-                                    className="userNameform-control"
-                                    id="userName"
-                                    name="userName"
-                                    value= {userName}
-                                    onChange={onChange}
-                                    placeholder="Enter a new username"
-                                    />
-                                </div>
-                                <div>
-                                    <label>Background Color</label>
-                                    <input
-                                    type="text"
-                                    className="backColorform-control"
-                                    id="backgroundColor"
-                                    name="backgroundColor"
-                                    value={backgroundColor}
-                                    onChange={onChange}
-                                    placeholder="Enter a hex value"
-                                    />
-                                </div>
-                                <div>
-                                    <label>Text Color</label>
-                                    <div>
-                                    <input
-                                    type="text"
-                                    className="textColorform-control"
-                                    id="textColor"
-                                    name="textColor"
-                                    value={textColor}
-                                    onChange={onChange}
-                                    placeholder="Enter a hex value"
-                                    />
-                                    </div>
-                                    
-                                </div>
+                                    <section className="thisform">
+                                        <form onSubmit={onSubmit}>
+                                        <div>
+                                            <label>New Username</label>
+                                            <input
+                                            type="text"
+                                            className="userNameform-control"
+                                            id="userName"
+                                            name="userName"
+                                            value= {userName}
+                                            onChange={onChange}
+                                            placeholder="Enter a new username"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label>Background Color</label>
+                                            <input
+                                            type="text"
+                                            className="backColorform-control"
+                                            id="backgroundColor"
+                                            name="backgroundColor"
+                                            value={backgroundColor}
+                                            onChange={onChange}
+                                            placeholder="Enter a hex value"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label>Text Color</label>
+                                            <div>
+                                            <input
+                                            type="text"
+                                            className="textColorform-control"
+                                            id="textColor"
+                                            name="textColor"
+                                            value={textColor}
+                                            onChange={onChange}
+                                            placeholder="Enter a hex value"
+                                            />
+                                            </div>
+                                            
+                                        </div>
 
-                    <div style = {{marginTop: "10px"}}>
-                        <button>Submit</button>
-                     </div>
-                </form>
-            </section>
-            </div>
+                                        <div style = {{marginTop: "10px"}}>
+                                            <button>Submit</button>
+                                        </div>
+                                        </form>
+                                    </section>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
 
@@ -154,16 +148,10 @@ function UserProfile(){
         
     
 }
-
-
-
-
-
 const user ={
     width: "300px",
     backgroundColor: "beige",
     borderRadius: "10%",
-    //boxShadow: "10px 10px 10px #dbdbd2",
     paddingLeft: "20px",
     paddingTop: "10px",
     paddingRight: "20px",
@@ -173,9 +161,5 @@ const user ={
     marginRight: "auto",
   }
 
-  const userSettings ={
-    textAlign:"center",
-    backgroundColor: "grey",
-  }
 
 export default UserProfile;
