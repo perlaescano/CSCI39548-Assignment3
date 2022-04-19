@@ -11,11 +11,11 @@ class Credits extends Component {
     render()
     {
         return (
-            <div id="credit">
+            <div id="credit" style = {creditDisplayBlock}>
                 <h1>Credits</h1>
                 <div id="menu">
-                    <label>Menu</label>
-                    <Link id="buttons" to="/userProfile"><button><p>User Profile</p></button></Link>
+                    <label style ={{marginRight:"4px"}}>Menu</label>
+                    <Link id="buttons" to="/userProfile"><button style ={{marginRight:"4px"}}><p>User Profile</p></button></Link>
                     <Link id="buttons" to="/debit"><button><p>View Debits</p></button></Link>    
                 </div>
 
@@ -28,7 +28,7 @@ class Credits extends Component {
                         <label>Amount (USD): </label>
                         <input name ="amount" placeholder="1.00" required />
                         <br></br>
-                        <button type="submit"><p>Submit</p></button>
+                        <button type="submit" style = {{marginTop:"4px"}}><p>Submit</p></button>
                     </form>
                 </div>
 
@@ -59,5 +59,14 @@ class Credits extends Component {
         return display;
     }
 }
-
+const creditDisplayBlock = {
+    display:"block", 
+    backgroundColor:"beige",
+    textAlign:"center", 
+    width: "400px",
+    marginLeft:"auto",
+    marginRight:"auto",
+    borderRadius:"5%",
+    paddingBottom:"20px",
+}
 export default Credits;

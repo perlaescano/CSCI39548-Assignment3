@@ -9,11 +9,11 @@ class Debits extends Component{
     }
     render(){
         return(
-        <div id="credit">
+        <div id="debit" style ={debitDisplayBlock}>
             <h1>Debits</h1>
             <div id="menu">
-                <label>Menu</label>
-                <Link id="buttons" to="/userProfile"><button><p>My Profile</p></button></Link>
+                <label style ={{marginRight:"4px"}}>Menu</label>
+                <Link id="buttons" to="/userProfile"><button style ={{marginRight:"4px"}}><p>My Profile</p></button></Link>
                 <Link id="buttons" to="/credit"><button><p>View Credits</p></button></Link>
                
             </div>
@@ -31,7 +31,7 @@ class Debits extends Component{
 
                     <br></br>
 
-                    <button type="submit"><p>Submit</p></button>
+                    <button type="submit" style = {{marginTop:"4px"}}><p>Submit</p></button>
                 </form>
         </div>
 
@@ -61,6 +61,16 @@ class Debits extends Component{
             })
             return display;
         }
+}
+const debitDisplayBlock = {
+    display:"block", 
+    backgroundColor:"beige",
+    textAlign:"center", 
+    width: "400px",
+    marginLeft:"auto",
+    marginRight:"auto",
+    borderRadius:"5%",
+    paddingBottom:"20px",
 }
 export default Debits;
 
