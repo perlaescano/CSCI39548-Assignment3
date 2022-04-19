@@ -74,7 +74,7 @@ function UserProfile(){
                     <h1 id = "firstUserNameUse" >Hello {uName}</h1>
                     <div id="starterInfo">
                         <div id = "starterInfo_username">Username: {uName}</div>
-                        <div>Member Since: {memSince}</div>
+                        
                     </div>
                     <div id="customizeProfileCallapse">
                         <div className ="userSettings" {...getToggleProps({onClick: handleOnClick})} style = {{marginTop: "10px"}}>
